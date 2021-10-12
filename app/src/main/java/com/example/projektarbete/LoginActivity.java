@@ -57,7 +57,9 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             // not signed in
 
-         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+
+        }
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
@@ -66,7 +68,6 @@ public class LoginActivity extends AppCompatActivity {
         SignInButton btn = (SignInButton) findViewById(R.id.btnSignIn);
 
         btn.setOnClickListener(view -> signIn());
-        }
     }
 
     public void signIn() {

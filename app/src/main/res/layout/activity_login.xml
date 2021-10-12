@@ -50,4 +50,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already signed up? Sign in here!"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="438dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
