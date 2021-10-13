@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,15 +21,20 @@ public class SignUpActivity extends AppCompatActivity {
 
     private static final String TAG = "EmailPassword";
     private FirebaseAuth mAuth;
+    EditText email;
+    EditText password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-
-
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+
+        Button signUpBtn = (Button)findViewById(R.id.button3);
+         email = (EditText)findViewById(R.id.editTextEmail);
+         password = (EditText)findViewById(R.id.editTextPassword);
+        signUpBtn.setOnClickListener(onClickListener);
     }
 
     @Override
@@ -39,6 +48,20 @@ public class SignUpActivity extends AppCompatActivity {
 
 
     }
+
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+
+            String emailString;
+            String passwordString;
+            emailString = String.valueOf(email.getText());
+            passwordString = String.valueOf(password.getText());
+            createAccount(emailString, passwordString);
+
+
+        }
+    };
 
     private void createAccount(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password)
