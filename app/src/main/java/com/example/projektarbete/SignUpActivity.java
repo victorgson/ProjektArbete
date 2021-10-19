@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +25,9 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     EditText email;
     EditText password;
+    EditText password2;
+    private boolean identicalPasswords;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +39,27 @@ public class SignUpActivity extends AppCompatActivity {
         Button signUpBtn = (Button)findViewById(R.id.button3);
          email = (EditText)findViewById(R.id.editTextEmail);
          password = (EditText)findViewById(R.id.editTextPassword);
-        signUpBtn.setOnClickListener(onClickListener);
+         password2 = (EditText)findViewById(R.id.editTextPassword2);
+            signUpBtn.setOnClickListener(onClickListener);
+
+        password2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(password2.getText() != password.getText()){
+                    System.out.println("Passwords need to be identical!");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 
     @Override
@@ -64,6 +89,9 @@ public class SignUpActivity extends AppCompatActivity {
     };
 
     private void createAccount(String email, String password) {
+
+        if(email.length() > 0 && password.length() > 0 ) {
+
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -82,6 +110,10 @@ public class SignUpActivity extends AppCompatActivity {
                         }
                     }
                 });
+
+        } else {
+            Toast.makeText(SignUpActivity.this, "Please enter a email and password", Toast.LENGTH_SHORT).show();
+        }
     }
 
 
