@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "372454968469",
+    "project_id": "projektarbete-b5f1f",
+    "storage_bucket": "projektarbete-b5f1f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:372454968469:android:1c98492f632a0742e31f9c",
+        "android_client_info": {
+          "package_name": "com.example.projektarbete"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "372454968469-aotm15b6to8cs0mkdu8vhm3tguvnb1pj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.projektarbete",
+            "certificate_hash": "8e6fe5efce7bbd912bc4d93ec262423a8f79430f"
+          }
+        },
+        {
+          "client_id": "372454968469-6kghs9o9matf6gbaqu85u727jth2agsr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-rIT_kLEzGAQ4U3MzI_DrF7vgMtBQSsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "372454968469-6kghs9o9matf6gbaqu85u727jth2agsr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
