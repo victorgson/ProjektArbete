@@ -49,50 +49,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-    private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
-            new FirebaseAuthUIActivityResultContract(),
-            new ActivityResultCallback<FirebaseAuthUIAuthenticationResult>() {
-                @Override
-                public void onActivityResult(FirebaseAuthUIAuthenticationResult result) {
-                    onSignInResult(result);
-                }
-            }
-    );
-
-    public void createSignInIntent() {
-
-        System.out.println("tyjuuuasd");
-        // [START auth_fui_create_intent]
-        // Choose authentication providers
-        List<AuthUI.IdpConfig> providers = Arrays.asList(
-                new AuthUI.IdpConfig.EmailBuilder().build(),
-                new AuthUI.IdpConfig.PhoneBuilder().build(),
-                new AuthUI.IdpConfig.GoogleBuilder().build(),
-                new AuthUI.IdpConfig.TwitterBuilder().build());
-
-        // Create and launch sign-in intent
-        Intent signInIntent = AuthUI.getInstance()
-                .createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .build();
-        signInLauncher.launch(signInIntent);
-        // [END auth_fui_create_intent]
-    }
-
-    // [START auth_fui_result]
-    private void onSignInResult(FirebaseAuthUIAuthenticationResult result) {
-        IdpResponse response = result.getIdpResponse();
-        if (result.getResultCode() == RESULT_OK) {
-            // Successfully signed in
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            // ...
-        } else {
-            // Sign in failed. If response is null the user canceled the
-            // sign-in flow using the back button. Otherwise check
-            // response.getError().getErrorCode() and handle the error.
-            // ...
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,8 +64,6 @@ public class LoginActivity extends AppCompatActivity {
         signUpText.setOnClickListener(signUpTextListener);
 
         //signInBtn.setOnClickListener(view -> createSignInIntent());
-
-        createSignInIntent();
 
 
         if(mAuth.getCurrentUser() != null) {
@@ -142,7 +96,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            //reload;
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
         }
     }
 
