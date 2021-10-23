@@ -4,31 +4,56 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
+    TextView test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mAuth = FirebaseAuth.getInstance();
-
-        TextView test = (TextView)findViewById(R.id.HelloWorld);
-        Button signOutBtn = (Button)findViewById(R.id.signOutBtn);
-        signOutBtn.setOnClickListener(clickListener);
-        test.setText(mAuth.getCurrentUser().getEmail());
 
 
-        // asdasdasd
     }
 
+    private void init(){
+        //firebase
+        mAuth = FirebaseAuth.getInstance();
+
+        //layout
+        test = (TextView)findViewById(R.id.HelloWorld);
+        Button signOutBtn = (Button)findViewById(R.id.signOutBtn);
+        signOutBtn.setOnClickListener(clickListener);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        // IF USER IS NOT SIGNED IN, SEND TO LOGIN, IF NOT STAY ON MAINACTIVITY
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            // user signed in
+            test.setText(mAuth.getCurrentUser().getEmail());
+        } else {
+            // user not signed in
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }
+    }
+
+
+    // LISTENER
     View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
