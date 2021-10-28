@@ -70,6 +70,8 @@ public class LoginActivity extends AppCompatActivity {
         resturantSignUpText.setOnClickListener(resturantTextListener);
         signUpText.setOnClickListener(signUpTextListener);
 
+        getSupportActionBar().hide();
+
     }
 
     // Sign in with email method

@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
     TextView test;
+    FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +29,13 @@ public class MainActivity extends AppCompatActivity {
     private void init(){
         //firebase
         mAuth = FirebaseAuth.getInstance();
-
+        currentUser = mAuth.getCurrentUser();
         //layout
         test = (TextView)findViewById(R.id.HelloWorld);
         Button signOutBtn = (Button)findViewById(R.id.signOutBtn);
         signOutBtn.setOnClickListener(clickListener);
 
+        getSupportActionBar().hide();
     }
 
     @Override
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         // IF USER IS NOT SIGNED IN, SEND TO LOGIN, IF NOT STAY ON MAINACTIVITY
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+
         if(currentUser != null){
             // user signed in
             test.setText(mAuth.getCurrentUser().getEmail());

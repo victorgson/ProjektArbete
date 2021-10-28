@@ -15,7 +15,6 @@
         android:layout_height="225dp"
         android:layout_gravity="center"
         app:srcCompat="@drawable/logga" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailSignIn"
         android:layout_width="match_parent"
