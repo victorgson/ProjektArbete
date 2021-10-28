@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.625" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_buy.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_dishes.xml" value="0.1765625" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_main.xml" value="0.19427083333333334" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_rest_menu.xml" value="0.190625" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/hannes_class.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/list_item.xml" value="0.33" />
       </map>
     </option>
   </component>

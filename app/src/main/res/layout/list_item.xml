@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/dName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <TextView
+        android:id="@+id/dInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dName"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/dPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dInfo"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:text="TextView" />
+
+
+    <!--<Button
+        android:id="@+id/button"
+        android:layout_width="124dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/dPrice"
+        android:layout_alignStart="@+id/dPrice"
+
+        android:layout_alignEnd="@+id/dPrice"
+        android:layout_marginStart="-2dp"
+
+        android:layout_marginEnd="-65dp"
+        android:layout_marginBottom="10dp"
+        android:text="Köp" />-->
+
+</RelativeLayout>
