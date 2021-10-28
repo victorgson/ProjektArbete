@@ -26,6 +26,7 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,137 +40,45 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = "LoginActivity";
-    GoogleSignInOptions gso;
-    GoogleSignInClient mSignInClient;
     FirebaseAuth mAuth;
-    TextView signUpText;
-    EditText email;
-    EditText password;
+    TextView signUpText, resturantSignUpText;
     Button signInBtn;
+    TextInputLayout email, password;
 
 
 
-    private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
-            new FirebaseAuthUIActivityResultContract(),
-            new ActivityResultCallback<FirebaseAuthUIAuthenticationResult>() {
-                @Override
-                public void onActivityResult(FirebaseAuthUIAuthenticationResult result) {
-                    onSignInResult(result);
-                }
-            }
-    );
-
-    public void createSignInIntent() {
-
-        System.out.println("tyjuuuasd");
-        // [START auth_fui_create_intent]
-        // Choose authentication providers
-        List<AuthUI.IdpConfig> providers = Arrays.asList(
-                new AuthUI.IdpConfig.EmailBuilder().build(),
-                new AuthUI.IdpConfig.PhoneBuilder().build(),
-                new AuthUI.IdpConfig.GoogleBuilder().build(),
-                new AuthUI.IdpConfig.TwitterBuilder().build());
-
-        // Create and launch sign-in intent
-        Intent signInIntent = AuthUI.getInstance()
-                .createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .build();
-        signInLauncher.launch(signInIntent);
-        // [END auth_fui_create_intent]
-    }
-
-    // [START auth_fui_result]
-    private void onSignInResult(FirebaseAuthUIAuthenticationResult result) {
-        IdpResponse response = result.getIdpResponse();
-        if (result.getResultCode() == RESULT_OK) {
-            // Successfully signed in
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            // ...
-        } else {
-            // Sign in failed. If response is null the user canceled the
-            // sign-in flow using the back button. Otherwise check
-            // response.getError().getErrorCode() and handle the error.
-            // ...
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        init();
+
+    }
+
+    private void init(){
+        // firebase
         mAuth = FirebaseAuth.getInstance();
 
-        email = (EditText)findViewById(R.id.editTextSignInEmail);
-        password = (EditText)findViewById(R.id.editTextSignInPassword);
+        // layout
+        email = (TextInputLayout) findViewById(R.id.emailSignIn);
+        password = (TextInputLayout) findViewById(R.id.passwordSignIn);
         signInBtn = (Button)findViewById(R.id.signInButton);
         signInBtn.setOnClickListener(signInEmailListener);
         signUpText = (TextView)findViewById(R.id.textView);
+        resturantSignUpText = (TextView)findViewById(R.id.resturantText);
+        resturantSignUpText.setOnClickListener(resturantTextListener);
         signUpText.setOnClickListener(signUpTextListener);
 
-        //signInBtn.setOnClickListener(view -> createSignInIntent());
+        getSupportActionBar().hide();
 
-        createSignInIntent();
-
-
-        if(mAuth.getCurrentUser() != null) {
-            // already signed in, doesn't have to go through sign in flow again
-
-        /*    gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                    .requestIdToken(getString(R.string.default_web_client_id))
-                    .requestEmail()
-                    .build();
-            mSignInClient = GoogleSignIn.getClient(this,gso);
-
-            signIn();*/
-        } else {
-            // not signed in
-
-
-        }
-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-        mSignInClient = GoogleSignIn.getClient(this,gso);
-
-        SignInButton btn = (SignInButton)findViewById(R.id.signInGoogle);
-
-        btn.setOnClickListener(view -> signIn());
     }
 
-    public void onStart(){
-        super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            //reload;
-        }
-    }
-
-
-    public void signIn() {
-        Intent signInIntent = mSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_SIGN_IN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            try {
-                GoogleSignInAccount account = task.getResult(ApiException.class);
-                firebaseAuthWithGoogle(account);
-            } catch (ApiException e) {
-                Log.w(TAG, "Google sign in failed", e);
-            }
-        }
-    }
-
+    // Sign in with email method
     private void signInEmail(String email, String password) {
-        // [START sign_in_with_email]
-        System.out.println(email + password + "tju");
+
         if(email.length() > 0 && password.length() > 0) {
+
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -180,7 +89,6 @@ public class LoginActivity extends AppCompatActivity {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 Intent intent = new Intent(getBaseContext(), MainActivity.class);
                                 startActivity(intent);
-                                //updateUI(user);
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -193,36 +101,36 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             Toast.makeText(LoginActivity.this, "Please enter email and password", Toast.LENGTH_SHORT).show();
         }
-        // [END sign_in_with_email]
     }
 
-    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
-        mAuth.signInWithCredential(credential)
-                .addOnSuccessListener(this, authResult -> {
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    finish();
-                })
-                .addOnFailureListener(this, e -> Toast.makeText(LoginActivity.this, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show());
-    }
 
+    // LISTENERS
+
+    // Listens to sign up text
     View.OnClickListener signUpTextListener = new View.OnClickListener() {
         @Override
+        // Runs once the sign up text is clicked
         public void onClick(View view) {
-                    Intent intent = new Intent(getBaseContext(), SignUpActivity.class);
-                    startActivity(intent);
+                    startActivity(new Intent(getBaseContext(), SignUpActivity.class));
             }
-
         };
 
+    // Listens to resturant signup text
+    View.OnClickListener resturantTextListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            startActivity(new Intent(getBaseContext(), ResurantSignUpActivity.class));
+        }
 
+    };
+
+    // Listens to sign in button
     View.OnClickListener signInEmailListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            String emailString = email.getText().toString().trim();
-            String passwordString = password.getText().toString().trim();
-                signInEmail(emailString, passwordString);
+            String emailString = email.getEditText().getText().toString().trim();
+            String passwordString = password.getEditText().getText().toString().trim();
+            signInEmail(emailString, passwordString);
 
 
         }

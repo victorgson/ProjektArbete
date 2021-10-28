@@ -4,64 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity"
+    tools:context=".ResurantSignUpActivity"
     android:orientation="vertical">
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/ralewayblack"
-        android:text="Welcome"
-        android:textSize="40sp" />
-
-
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/firstName"
+        android:id="@+id/resturantNameTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:hint="First name"
+        android:inputType="text"
+        android:maxLines="1"
+        android:hint="Resturant name"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:startIconContentDescription="asd"
-        app:startIconDrawable="@drawable/ic_user">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/lastName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Last name"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_marginTop="5dp"
-        app:startIconContentDescription="asd"
-        app:startIconDrawable="@drawable/ic_user">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editTextEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_marginTop="5dp"
         app:startIconContentDescription="asd"
         app:startIconDrawable="@drawable/ic_outline_email_24">
 
@@ -74,52 +28,89 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editTextPassword"
+        android:id="@+id/resturantDescTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:errorEnabled="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:hint="Resturant description"
+        android:inputType="textMultiLine"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:hint="Enter password"
-        app:endIconMode="password_toggle"
         app:startIconContentDescription="asd"
-        app:startIconDrawable="@drawable/ic_baseline_vpn_key_24"
-        tools:layout_editor_absoluteY="676dp">
+        app:startIconDrawable="@drawable/ic_outline_email_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
+
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editTextPassword2"
+        android:id="@+id/resturantEmailTextInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        app:errorEnabled="true"
+        android:layout_marginTop="10dp"
+        android:hint="Email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:hint="Enter password again"
-        app:endIconMode="password_toggle"
         app:startIconContentDescription="asd"
-        app:startIconDrawable="@drawable/ic_baseline_vpn_key_24"
-        tools:layout_editor_absoluteY="676dp">
+        app:startIconDrawable="@drawable/ic_outline_email_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
+            android:inputType="textEmailAddress"
+
+
+        />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/resturantPasswordTextInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Enter password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:startIconContentDescription="asd"
+        app:endIconMode="password_toggle"
+        app:startIconDrawable="@drawable/ic_baseline_vpn_key_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/resturantPassword2TextInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Enter password again"
+        app:endIconMode="password_toggle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:startIconContentDescription="asd"
+        app:startIconDrawable="@drawable/ic_baseline_vpn_key_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/signUpButton"
+        android:id="@+id/resturantSignUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="SIGN UP"
         android:layout_gravity="center"
-        android:text="SIGN UP" />
+        android:layout_marginTop="30dp" />
 
 
 </LinearLayout>
