@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjektArbete">
         <activity
+            android:name=".BuyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Dishes"
+            android:exported="false" />
+        <activity
+            android:name=".RestMenu"
+            android:exported="false" />
+        <activity
             android:name=".ResurantSignUpActivity"
             android:exported="false" />
         <activity
