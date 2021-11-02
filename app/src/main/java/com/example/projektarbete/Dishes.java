@@ -17,6 +17,7 @@ public class Dishes extends android.app.Activity {
         this.price = price;
         this.prices = prices;
 
+
     }
 
 

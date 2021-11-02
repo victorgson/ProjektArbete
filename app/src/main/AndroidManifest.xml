@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjektArbete">
         <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
+            android:name=".Order"
+            android:exported="false" />
+        <activity
+            android:name=".Basket"
+            android:exported="false" />
+        <activity
             android:name=".BuyActivity"
             android:exported="false" />
         <activity
@@ -28,7 +37,7 @@
             android:name=".LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".HannesClass"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
