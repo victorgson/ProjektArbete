@@ -46,7 +46,6 @@ public class HannesClass extends AppCompatActivity {
             }
         });
 
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
@@ -54,7 +53,7 @@ public class HannesClass extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.home:
+                    case R.id.basket:
 
                         return true;
 
@@ -67,8 +66,8 @@ public class HannesClass extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), Order.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.basket:
-                        startActivity(new Intent(getApplicationContext(), Basket.class));
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), HannesClass.class));
                         overridePendingTransition(0,0);
                         return true;
 
@@ -82,7 +81,9 @@ public class HannesClass extends AppCompatActivity {
                 return false;
             }
         });
+
     }
+
 
     public void openActivity1() {
         Intent intent = new Intent(this, RestMenu.class);

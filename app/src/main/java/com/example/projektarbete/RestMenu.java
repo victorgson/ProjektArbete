@@ -1,5 +1,8 @@
 package com.example.projektarbete;
 
+import static android.content.ClipData.*;
+
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -23,6 +26,7 @@ public class RestMenu extends AppCompatActivity {
     static List<Dishes> listDish;
     static ImageView loga;
     static TextView rtInfo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +78,10 @@ public class RestMenu extends AppCompatActivity {
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setSelectedItemId(R.id.home);
+
+
+
+
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
