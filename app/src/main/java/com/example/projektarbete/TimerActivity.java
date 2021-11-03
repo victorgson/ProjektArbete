@@ -1,14 +1,19 @@
 package com.example.projektarbete;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.projektarbete.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class TimerActivity extends AppCompatActivity {
 
@@ -38,6 +43,57 @@ public class TimerActivity extends AppCompatActivity {
                 deliveredFood.setText("");
             }
         }.start();
+
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.order);
+
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.basket:
+                        startActivity(new Intent(getApplicationContext(), Basket.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), Profile.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.order:
+                        startActivity(new Intent(getApplicationContext(), TimerActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+
+
+                }
+
+
+
+
+                return false;
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
     }
     public void animation(){
 

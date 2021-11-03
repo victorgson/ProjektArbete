@@ -3,27 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19322916666666667" />
-        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.42592592592592593" />
-        <entry key="app/src/main/res/drawable/ic_user.xml" value="0.32083333333333336" />
-        <entry key="app/src/main/res/font/bungee.xml" value="0.3234375" />
-        <entry key="app/src/main/res/font/raleway.xml" value="0.22962962962962963" />
-        <entry key="app/src/main/res/layout/activity_basket.xml" value="0.13697916666666668" />
-        <entry key="app/src/main/res/layout/activity_buy.xml" value="0.20520833333333333" />
-        <entry key="app/src/main/res/layout/activity_cart.xml" value="0.13697916666666668" />
-        <entry key="app/src/main/res/layout/activity_dishes.xml" value="0.1765625" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_order.xml" value="0.13697916666666668" />
-        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.13697916666666668" />
-        <entry key="app/src/main/res/layout/activity_rest_menu.xml" value="0.190625" />
-        <entry key="app/src/main/res/layout/activity_resurant_sign_up.xml" value="0.29322916666666665" />
-        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_start_screen.xml" value="0.13697916666666668" />
-        <entry key="app/src/main/res/layout/activity_timer.xml" value="0.13697916666666668" />
-        <entry key="app/src/main/res/layout/hannes_class.xml" value="0.20520833333333333" />
-        <entry key="app/src/main/res/layout/list_item.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/list_item_hannes.xml" value="0.1375" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/drawable/selector.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_basket.xml" value="0.16614583333333333" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_buy.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_dishes.xml" value="0.1765625" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_main.xml" value="0.19427083333333334" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_order.xml" value="0.15208333333333332" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_profile.xml" value="0.16614583333333333" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_rest_menu.xml" value="0.190625" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_sign_up.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_timer.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/hannes_class.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/list_item.xml" value="0.33" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/menu/menu.xml" value="0.1703125" />
+        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/menu/menu_nav.xml" value="0.15677083333333333" />
       </map>
     </option>
   </component>
