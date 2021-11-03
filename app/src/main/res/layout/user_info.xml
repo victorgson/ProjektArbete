@@ -100,7 +100,7 @@
             android:id="@+id/email_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="140dp"
             android:text="admin@admin.com"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -133,7 +133,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"
-            android:text="Phone"
+            android:text="First Name"
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -144,8 +144,8 @@
             android:id="@+id/phone_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:text="+46760594971"
+            android:layout_marginStart="140dp"
+            android:text="Hannes"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -161,7 +161,7 @@
             app:layout_constraintEnd_toStartOf="@+id/textView2"
             app:layout_constraintTop_toTopOf="@+id/textView2"
             app:layout_constraintVertical_bias="0.65"
-            app:srcCompat="@drawable/ic_email" />
+            app:srcCompat="@drawable/ic_person" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -213,8 +213,8 @@
             android:id="@+id/country_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:text="Sweden"
+            android:layout_marginStart="140dp"
+            android:text="Holmlund"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/mail_icon3"
@@ -225,7 +225,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"
-            android:text="Country"
+            android:text="Last Name"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -241,7 +241,7 @@
             app:layout_constraintEnd_toStartOf="@+id/country"
             app:layout_constraintTop_toTopOf="@+id/country"
             app:layout_constraintVertical_bias="0.65"
-            app:srcCompat="@drawable/ic_email" />
+            app:srcCompat="@drawable/ic_person" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
