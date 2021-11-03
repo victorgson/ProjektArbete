@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjektArbete">
 
-
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
         <activity
             android:name=".TimerActivity"
             android:exported="true" />
