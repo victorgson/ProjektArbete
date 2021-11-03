@@ -38,6 +38,10 @@
             android:exported="true" />
         <activity
             android:name=".HannesClass"
+            android:exported="true" />
+
+        <activity
+            android:name=".StartScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
