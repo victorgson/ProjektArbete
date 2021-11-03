@@ -23,7 +23,7 @@ public class StartScreenActivity extends AppCompatActivity {
         int secondsDelayed = 1;
         new Handler().postDelayed(new Runnable() {
             public void run() {
-                startActivity(new Intent(StartScreenActivity.this, LoginActivity.class));
+                startActivity(new Intent(StartScreenActivity.this, MainActivity.class));
                 finish();
             }
         }, secondsDelayed * 3000);

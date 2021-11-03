@@ -9,22 +9,28 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 
 
 import com.example.projektarbete.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
+    FirebaseAuth mAuth;
+    FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
+        init();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -106,8 +112,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
 
-
+    private void init(){
+        //firebase
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+        //layout
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        // IF USER IS NOT SIGNED IN, SEND TO LOGIN, IF NOT STAY ON MAINACTIVITY
+
+        if(currentUser != null){
+            // user signed in - do nothing
+        } else {
+            // user not signed in, ask them to sign in
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }
+    }
+
 }
