@@ -15,24 +15,25 @@
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/dInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/dName"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
-        android:text="TextView" />
+        android:text="TextView" />-->
 
     <TextView
         android:id="@+id/dPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dInfo"
+        android:layout_below="@id/dName"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
 
     <!--<Button

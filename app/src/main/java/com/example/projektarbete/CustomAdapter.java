@@ -36,7 +36,7 @@ public class CustomAdapter extends ArrayAdapter<Dishes> {
     static class DataHolder {
 
         TextView dishName;
-        TextView dishInfo;
+       // TextView dishInfo;
         TextView dishPrice;
 
 
@@ -54,7 +54,7 @@ public class CustomAdapter extends ArrayAdapter<Dishes> {
             convertView = inflater.inflate(layoutResourceId, parent, false);
             holder = new DataHolder();
             holder.dishName = (TextView) convertView.findViewById(R.id.dName);
-            holder.dishInfo = (TextView) convertView.findViewById(R.id.dInfo);
+            //holder.dishInfo = (TextView) convertView.findViewById(R.id.dInfo);
             holder.dishPrice = (TextView) convertView.findViewById(R.id.dPrice);
 
             convertView.setTag(holder);
@@ -64,7 +64,7 @@ public class CustomAdapter extends ArrayAdapter<Dishes> {
         }
         Dishes dishes = dish.get(position);
         holder.dishName.setText(dishes.getName());
-        holder.dishInfo.setText(dishes.getInfo());
+       // holder.dishInfo.setText(dishes.getInfo());
         holder.dishPrice.setText(dishes.getPrice());
 
         return convertView;
