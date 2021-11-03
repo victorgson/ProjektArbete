@@ -118,6 +118,11 @@ public class RestMenu extends AppCompatActivity {
             }
         });
     }
+public void StartNav(){
 
+
+
+
+}
 
 }

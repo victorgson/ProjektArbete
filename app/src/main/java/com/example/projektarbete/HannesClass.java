@@ -54,7 +54,8 @@ public class HannesClass extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.basket:
-
+                        startActivity(new Intent(getApplicationContext(), Basket.class));
+                        overridePendingTransition(0,0);
                         return true;
 
                     case R.id.profile:
