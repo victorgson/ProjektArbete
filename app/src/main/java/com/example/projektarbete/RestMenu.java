@@ -53,7 +53,7 @@ public class RestMenu extends AppCompatActivity {
         }
 
 
-        CustomAdapter adapter = new CustomAdapter(this, R.layout.list_item, listDish);
+        CustomAdapter adapter = new CustomAdapter(this, R.layout.list_item_hannes, listDish);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
