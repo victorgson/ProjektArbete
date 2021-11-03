@@ -3,19 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.18645833333333334" />
-        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/drawable/selector.xml" value="0.18645833333333334" />
-        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_basket.xml" value="0.16614583333333333" />
-        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_buy.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_dishes.xml" value="0.1765625" />
-        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_main.xml" value="0.19427083333333334" />
-        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_order.xml" value="0.15208333333333332" />
-        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_profile.xml" value="0.16614583333333333" />
-        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_rest_menu.xml" value="0.190625" />
-        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/activity_sign_up.xml" value="0.17864583333333334" />
-        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/hannes_class.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/layout/list_item.xml" value="0.33" />
-        <entry key="..\:/Users/vince/AndroidStudioProjects/ProjektArbete/app/src/main/res/menu/menu.xml" value="0.1703125" />
+        <entry key="app/src/main/res/drawable/gradient_background.xml" value="0.16510416666666666" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_restaurants.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.625" />
+        <entry key="app/src/main/res/layout/activity_timer.xml" value="0.14895833333333333" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/list_item_1.xml" value="0.14895833333333333" />
+        <entry key="app/src/main/res/layout/user_info.xml" value="0.28229166666666666" />
       </map>
     </option>
   </component>
