@@ -41,11 +41,11 @@ public class RestMenu extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.menulista);
 
 
-        if (getIntent().getStringExtra("Rest1").equals("10")) {
+        if (getIntent().getStringExtra("Rest1").equals("thai")) {
             Dishes.restList1();
             rLoga.setLogaKt(loga);
             rInfo.setRTxt(rtInfo);
-        } else if (getIntent().getStringExtra("Rest1").equals("11")) {
+        } else if (getIntent().getStringExtra("Rest1").equals("max")) {
             Dishes.restList2();
             rLoga.setLogaMacD(loga);
             rInfo.setRTxt2(rtInfo);
@@ -53,7 +53,7 @@ public class RestMenu extends AppCompatActivity {
         }
 
 
-        CustomAdapter adapter = new CustomAdapter(this, R.layout.list_item_hannes, listDish);
+        CustomAdapter adapter = new CustomAdapter(this, R.layout.list_item, listDish);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
