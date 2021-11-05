@@ -36,10 +36,12 @@ public class MainActivity extends AppCompatActivity {
 
         int[] imageId = {R.drawable.mcdonalds, R.drawable.indish_food_pic, R.drawable.thaifood_bild_pic, R.drawable.fried_chicken_pic};
 
-        String[] name = {"McDonald's", "Bombay", "Ching Palace", "KFC"};
+        String[] name = {"Max", "Bombay", "Kanias Thai", "KFC"};
 
         String[] info = {"59.00 SEK i avgift.  Leveranstid: 20-30 min", "79.00 SEK i avgift.  Leveranstid: 40-50 min", "49.00 SEK i avgift.  Leveranstid: 30-40 min",
                 "39.00 SEK i avgift.  Leveranstid: 20-30 min"};
+
+        String[] restaurantsID = {"max", "bombay", "thai", "kfc" };
 
         ArrayList<Restaurants> restaurantsArrayList = new ArrayList<>();
 
@@ -57,15 +59,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Intent i = new Intent(MainActivity.this,MainActivity.class); //ändra till Vincents class
+                Intent i = new Intent(); //ändra till Vincents class
                 i.putExtra("name",name[position]);
                 i.putExtra("info",info[position]);
                 i.putExtra("imageid",imageId[position]);
+                i.putExtra("Rest1", restaurantsID[position]);
+
+                i.setClass(MainActivity.this, RestMenu.class);
                 startActivity(i);
                 Log.i("info","Du tryckte på "+name[position]);
 
             }
         });
+
 
 
 
