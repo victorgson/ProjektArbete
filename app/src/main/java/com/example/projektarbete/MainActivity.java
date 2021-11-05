@@ -130,8 +130,11 @@ public class MainActivity extends AppCompatActivity {
 
         if(currentUser != null){
             // user signed in - do nothing
+            System.out.println("dett a då?");
+            System.out.println(currentUser.getEmail());
         } else {
             // user not signed in, ask them to sign in
+            System.out.println("händer detta?");
             startActivity(new Intent(this, LoginActivity.class));
             finish();
         }
