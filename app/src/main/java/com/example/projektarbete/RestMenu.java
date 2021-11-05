@@ -42,14 +42,22 @@ public class RestMenu extends AppCompatActivity {
 
 
         if (getIntent().getStringExtra("Rest1").equals("thai")) {
-            Dishes.restList1();
+            Dishes.Kt();
             rLoga.setLogaKt(loga);
-            rInfo.setRTxt(rtInfo);
+            rInfo.setRTKt(rtInfo);
         } else if (getIntent().getStringExtra("Rest1").equals("max")) {
-            Dishes.restList2();
+            Dishes.Max();
             rLoga.setLogaMacD(loga);
-            rInfo.setRTxt2(rtInfo);
+            rInfo.setRTMax(rtInfo);
 
+        } else if (getIntent().getStringExtra("Rest1").equals("bombay")) {
+            Dishes.Bombay();
+            rLoga.setLogaBombay(loga);
+            rInfo.setRTBombay(rtInfo);
+        } else if (getIntent().getStringExtra("Rest1").equals("kfc")) {
+            Dishes.Kfc();
+            rLoga.setLogaKfc(loga);
+            rInfo.setRTKfc(rtInfo);
         }
 
 
@@ -79,32 +87,29 @@ public class RestMenu extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.basket:
                         startActivity(new Intent(getApplicationContext(), Basket.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
 
 
                     case R.id.profile:
                         startActivity(new Intent(getApplicationContext(), Profile.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.order:
                         startActivity(new Intent(getApplicationContext(), TimerActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
 
 
-
                 }
-
-
 
 
                 return false;

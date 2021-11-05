@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         int[] imageId = {R.drawable.mcdonalds, R.drawable.indish_food_pic, R.drawable.thaifood_bild_pic, R.drawable.fried_chicken_pic};
 
-        String[] name = {"Max", "Bombay", "Kanias Thai", "KFC"};
+        String[] name = {"Max", "Bombay", "Kanyas Thai", "KFC"};
 
         String[] info = {"59.00 SEK i avgift.  Leveranstid: 20-30 min", "79.00 SEK i avgift.  Leveranstid: 40-50 min", "49.00 SEK i avgift.  Leveranstid: 30-40 min",
                 "39.00 SEK i avgift.  Leveranstid: 20-30 min"};
