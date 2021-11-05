@@ -35,7 +35,7 @@
             android:name=".RestMenu"
             android:exported="false" />
         <activity
-            android:name=".ResurantSignUpActivity"
+            android:name=".RestaurantSignUpActivity"
             android:exported="false" />
         <activity
             android:name=".SignUpActivity"

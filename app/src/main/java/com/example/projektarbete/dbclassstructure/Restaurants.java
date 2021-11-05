@@ -3,20 +3,20 @@ package com.example.projektarbete.dbclassstructure;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 @IgnoreExtraProperties
-public class Resturants{
+public class Restaurants {
 
 
-    public String resturantName, resturantDesc;
+    public String restaurantName, restaurantDesc;
     public int rating;
     public String imageUri;
 
-    public Resturants() {
+    public Restaurants() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    public Resturants(String resturantName,String resturantDesc, int rating, String imageUri) {
-        this.resturantName = resturantName;
-        this.resturantDesc = resturantDesc;
+    public Restaurants(String restaurantName, String restaurantDesc, int rating, String imageUri) {
+        this.restaurantName = restaurantName;
+        this.restaurantDesc = restaurantDesc;
         this.rating = rating;
         this.imageUri = imageUri;
     }

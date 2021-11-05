@@ -7,16 +7,16 @@ public class Foods {
 
     public String foodName;
     public String foodDesc;
-    public Resturants resturant;
+    public Restaurants restaurant;
 
     public Foods() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    public Foods(String foodName, String foodDesc, Resturants resturant) {
+    public Foods(String foodName, String foodDesc, Restaurants restaurant) {
         this.foodName = foodName;
         this.foodDesc = foodDesc;
-        this.resturant = resturant;
+        this.restaurant = restaurant;
     }
 
 }
