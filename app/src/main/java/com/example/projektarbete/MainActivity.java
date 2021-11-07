@@ -12,19 +12,30 @@ import android.widget.AdapterView;
 import android.widget.Button;
 
 
+import com.google.firebase.database.IgnoreExtraProperties;
 import com.example.projektarbete.databinding.ActivityMainBinding;
+import com.example.projektarbete.dbclassstructure.RestaurantsDB;
+import com.example.projektarbete.dbclassstructure.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     FirebaseAuth mAuth;
     FirebaseUser currentUser;
+    DatabaseReference mDatabase;
+    DatabaseReference ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,9 +131,46 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void addRestaurantEventListener(DatabaseReference mPostReference) {
+        // [START post_value_event_listener]
+        ValueEventListener postListener = new ValueEventListener() {
+            private static final String TAG = "TEST";
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get Post object and use the values to update the UI
+                //Post post = dataSnapshot.getValue(Post.class);
+
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    RestaurantsDB r = new RestaurantsDB();
+                    String name = ds.child("resturantName").getValue(String.class);
+                    String desc = ds.child("resturantDesc").getValue(String.class);
+                    r.setRestaurantName(name);
+                    r.setRestaurantDesc(desc);
+
+                    System.out.println(r.getRestaurantName());
+                    System.out.println(r.getRestaurantDesc());
+
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+            }
+        };
+        mPostReference.addValueEventListener(postListener);
+        // [END post_value_event_listener]
+    }
+
     private void init(){
         //firebase
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        ref = mDatabase.child("resturants");
         currentUser = mAuth.getCurrentUser();
         //layout
 
@@ -131,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        addRestaurantEventListener(ref);
 
         // IF USER IS NOT SIGNED IN, SEND TO LOGIN, IF NOT STAY ON MAINACTIVITY
 

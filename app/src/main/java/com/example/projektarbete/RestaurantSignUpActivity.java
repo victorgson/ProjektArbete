@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.projektarbete.dbclassstructure.Restaurants;
+import com.example.projektarbete.dbclassstructure.RestaurantsDB;
 import com.example.projektarbete.dbclassstructure.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RestaurantSignUpActivity extends AppCompatActivity {
 
-    private static final String TAG = "ResturantSignUp";
+    private static final String TAG = "RestaurantSignUp";
     //firebase
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
@@ -101,7 +101,7 @@ public class RestaurantSignUpActivity extends AppCompatActivity {
 
     }
     public void writeNewRestaurant(String restaurantName, String resturantDesc){
-        Restaurants restaurant = new Restaurants(restaurantName, resturantDesc, 0, "empty");
+        RestaurantsDB restaurant = new RestaurantsDB(restaurantName, resturantDesc, 0, "empty");
         try {
             mDatabase.child("restaurant").child(restaurantName).setValue(restaurant);
         } catch (Exception e) {
