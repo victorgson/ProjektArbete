@@ -26,7 +26,7 @@ public class BuyActivity extends AppCompatActivity {
         TextView name = (TextView) findViewById(R.id.txtName);
         TextView info = (TextView) findViewById(R.id.txtInfo);
         TextView price = (TextView) findViewById(R.id.txtPrice);
-        Button buyBtn = (Button) findViewById(R.id.buyBtn);
+        TextView buyBtn = (TextView) findViewById(R.id.buyBtn);
 
         name.setText(getIntent().getStringExtra("Name"));
         info.setText(getIntent().getStringExtra("Info"));
