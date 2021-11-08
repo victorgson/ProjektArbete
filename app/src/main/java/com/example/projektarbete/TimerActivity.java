@@ -36,8 +36,8 @@ public class TimerActivity extends AppCompatActivity {
             }
 
             public void onFinish(){
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.doorbell);
-                mediaPlayer.start();
+               /* MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.doorbell);
+                mediaPlayer.start();*/
                 timerTextView.setText("Delivered!");
                 deliveredFood = findViewById(R.id.foodArriveTV);
                 deliveredFood.setText("");
