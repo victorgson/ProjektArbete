@@ -38,7 +38,7 @@
             android:name=".RestMenu"
             android:exported="false" />
         <activity
-            android:name=".ResurantSignUpActivity"
+            android:name=".RestaurantSignUpActivity"
             android:exported="false" />
         <activity
             android:name=".SignUpActivity"
@@ -58,7 +58,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity>x
     </application>
 
 </manifest>

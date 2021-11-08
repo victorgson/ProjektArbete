@@ -29,7 +29,8 @@
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
+
+            <ListView
                 android:id="@+id/cart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
@@ -53,7 +54,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewKr"
+                    android:id="@+id/amountDishesText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -83,7 +84,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewKr2"
+                    android:id="@+id/deliveryFeeText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -113,7 +114,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewKr3"
+                    android:id="@+id/totalAmountText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
