@@ -29,7 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class
+MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     FirebaseAuth mAuth;
@@ -45,14 +46,14 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        int[] imageId = {R.drawable.mcdonalds, R.drawable.indish_food_pic, R.drawable.thaifood_bild_pic, R.drawable.fried_chicken_pic};
+        int[] imageId = {R.drawable.mcdonalds, R.drawable.indish_food_pic, R.drawable.thaifood_bild_pic, R.drawable.fried_chicken_pic, R.drawable.fried_chicken_pic};
 
-        String[] name = {"Max", "Bombay", "Kanyas Thai", "KFC"};
+        String[] name = {"Max", "Bombay", "Kanyas Thai", "KFC", "TEST",  };
 
         String[] info = {"59.00 SEK i avgift.  Leveranstid: 20-30 min", "79.00 SEK i avgift.  Leveranstid: 40-50 min", "49.00 SEK i avgift.  Leveranstid: 30-40 min",
-                "39.00 SEK i avgift.  Leveranstid: 20-30 min"};
+                "39.00 SEK i avgift.  Leveranstid: 20-30 min", "TEST"};
 
-        String[] restaurantsID = {"max", "bombay", "thai", "kfc" };
+        String[] restaurantsID = {"max", "bombay", "thai", "kfc", "TEST" };
 
         ArrayList<Restaurants> restaurantsArrayList = new ArrayList<>();
 
@@ -82,12 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
 
 
 
@@ -148,8 +143,11 @@ public class MainActivity extends AppCompatActivity {
                     r.setRestaurantName(name);
                     r.setRestaurantDesc(desc);
 
-                    System.out.println(r.getRestaurantName());
+                    r.getRestaurantName();
+
+                    // lägga till mcdonalds i listan
                     System.out.println(r.getRestaurantDesc());
+
 
 
                 }
@@ -185,11 +183,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(currentUser != null){
             // user signed in - do nothing
-            System.out.println("dett a då?");
-            System.out.println(currentUser.getEmail());
         } else {
             // user not signed in, ask them to sign in
-            System.out.println("händer detta?");
             startActivity(new Intent(this, LoginActivity.class));
             finish();
         }
