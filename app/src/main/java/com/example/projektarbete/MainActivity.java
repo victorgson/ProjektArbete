@@ -50,8 +50,8 @@ MainActivity extends AppCompatActivity {
 
         String[] name = {"Max", "Bombay", "Kanyas Thai", "KFC", "TEST",  };
 
-        String[] info = {"59.00 SEK i avgift.  Leveranstid: 20-30 min", "79.00 SEK i avgift.  Leveranstid: 40-50 min", "49.00 SEK i avgift.  Leveranstid: 30-40 min",
-                "39.00 SEK i avgift.  Leveranstid: 20-30 min", "TEST"};
+        String[] info = {"49.00 SEK i avgift.  Leveranstid: 20-30 min", "49.00 SEK i avgift.  Leveranstid: 40-50 min", "49.00 SEK i avgift.  Leveranstid: 30-40 min",
+                "49.00 SEK i avgift.  Leveranstid: 20-30 min", "TEST"};
 
         String[] restaurantsID = {"max", "bombay", "thai", "kfc", "TEST" };
 

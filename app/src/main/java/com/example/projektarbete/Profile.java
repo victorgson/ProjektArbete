@@ -96,7 +96,7 @@ public class Profile extends AppCompatActivity {
         // hämtar användarid från instancen
         userID = mAuth.getUid();
         //hämtar referensen till databasen
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance("https://projektarbete-b5f1f-default-rtdb.europe-west1.firebasedatabase.app").getReference();
         // hämtar en annan referens till /users/
         ref = mDatabase.child("users");
 
