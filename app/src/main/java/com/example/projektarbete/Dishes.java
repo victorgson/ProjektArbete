@@ -20,6 +20,16 @@ public class Dishes extends android.app.Activity {
 
     }
 
+    public Dishes(String name, String info, String price) {
+
+        this.name = name;
+        this.info = info;
+        this.price = price;
+
+
+
+    }
+
 
     public static void restList1() {
 

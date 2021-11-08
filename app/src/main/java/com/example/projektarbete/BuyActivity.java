@@ -9,13 +9,20 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class BuyActivity extends AppCompatActivity {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+public class BuyActivity extends AppCompatActivity {
+    /*static List<Dishes> lista;
+    static List<Dishes> priser;*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,26 +30,42 @@ public class BuyActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
 
+       /* lista = new ArrayList<>();
+        priser = new ArrayList<>();*/
+       /* priser.add(new Dishes("","","",2));
+        Toast.makeText(BuyActivity.this, "Size is:"+priser.size(),Toast.LENGTH_SHORT).show();*/
         TextView name = (TextView) findViewById(R.id.txtName);
         TextView info = (TextView) findViewById(R.id.txtInfo);
         TextView price = (TextView) findViewById(R.id.txtPrice);
         Button buyBtn = (Button) findViewById(R.id.buyBtn);
+       // ListView listss = (ListView)findViewById(R.id.testssss);
 
         name.setText(getIntent().getStringExtra("Name"));
         info.setText(getIntent().getStringExtra("Info"));
         price.setText(getIntent().getStringExtra("Price"));
 
+       // CustomAdapter adapter = new CustomAdapter(this,R.layout.list_item, lista);
+       // listss.setAdapter(adapter);
+
         buyBtn.setText("Köp");
         buyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //adapter.add(new Dishes(getIntent().getStringExtra("Name"),getIntent().getStringExtra("Info"),getIntent().getStringExtra("Price")));
+
+               // priser.add(getIntent().getIntExtra("DishPrice",0));
                 Intent intent = new Intent();
                 intent.putExtra("Rest1", getIntent().getStringExtra("Rest1"));
-               /* intent.putExtra("CartN",getIntent().getStringExtra("Name"));
+                /*intent.putExtra("CartN",getIntent().getStringExtra("Name"));
                 intent.putExtra("CartI",getIntent().getStringExtra("Info"));
-                intent.putExtra("CartP", getIntent().getStringExtra("Price"));
-                intent.putExtra("CartRP", getIntent().getStringExtra("DishPrice"));*/
+                intent.putExtra("CartP", getIntent().getStringExtra("Price"));*/
+                //intent.putExtra("CartRP", getIntent().getStringExtra("DishPrice"));
+
+                /*Bundle args = new Bundle();
+                args.putSerializable("ARRAYLIST", (Serializable)lista);
+                intent.putExtra("BUNDLE",args);*/
                 intent.setClass(BuyActivity.this, RestMenu.class);
+
 
                 startActivity(intent);
             }
