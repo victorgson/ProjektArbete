@@ -167,7 +167,7 @@ MainActivity extends AppCompatActivity {
     private void init(){
         //firebase
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance("https://projektarbete-b5f1f-default-rtdb.europe-west1.firebasedatabase.app").getReference();
         ref = mDatabase.child("resturants");
         currentUser = mAuth.getCurrentUser();
         //layout

@@ -149,7 +149,7 @@ public class CartActivity extends AppCompatActivity {
     void init(){
 
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance("https://projektarbete-b5f1f-default-rtdb.europe-west1.firebasedatabase.app").getReference();
         ref = mDatabase.child("users").child(mAuth.getUid()).child("orders");
         currentUser = mAuth.getCurrentUser();
         addReceiptEventListener(ref);

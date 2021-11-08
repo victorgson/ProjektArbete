@@ -141,7 +141,7 @@ public class BuyActivity extends AppCompatActivity {
 
 
     void init(){
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance("https://projektarbete-b5f1f-default-rtdb.europe-west1.firebasedatabase.app").getReference();
         ref = mDatabase.child("orders");
         mAuth = FirebaseAuth.getInstance();
         userID = mAuth.getUid();
