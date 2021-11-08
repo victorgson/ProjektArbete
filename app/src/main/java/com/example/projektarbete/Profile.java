@@ -55,7 +55,7 @@ public class Profile extends AppCompatActivity {
                         return true;
 
                     case R.id.basket:
-                        startActivity(new Intent(getApplicationContext(), Basket.class));
+                        startActivity(new Intent(getApplicationContext(), CartActivity.class));
                         overridePendingTransition(0,0);
                         return true;
 
