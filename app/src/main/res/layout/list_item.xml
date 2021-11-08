@@ -13,7 +13,11 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"/>
 
     <!--<TextView
         android:id="@+id/dInfo"
@@ -25,6 +29,7 @@
         android:text="TextView" />-->
 
     <TextView
+        android:layout_centerHorizontal="true"
         android:id="@+id/dPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

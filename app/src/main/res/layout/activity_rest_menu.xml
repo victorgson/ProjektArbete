@@ -7,15 +7,11 @@
     tools:context=".RestMenu">
 
     <ImageView
-        android:maxWidth="182dp"
-        android:maxHeight="501dp"
         android:id="@+id/restBild"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-
-
-        />
+        android:layout_height="225dp"
+        android:layout_marginBottom="10dp"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/restInfo"
@@ -24,9 +20,10 @@
         android:layout_below="@+id/restBild"
         android:layout_centerInParent="true"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="sans-serif-medium"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textAlignment="center"/>
 
 
     <ListView
@@ -34,22 +31,31 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_below="@+id/restInfo"
-        android:layout_marginTop="20dp">
+        android:layout_centerVertical="false"
+        >
 
 
     </ListView>
 
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_above="@id/menulista"
+        android:layout_marginTop="10dp"
+        android:background="#33000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="26dp" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bottom_navigation"
-        app:itemBackground="@color/design_default_color_primary"
-        app:itemTextColor="@drawable/selector"
-        app:itemIconTint="@drawable/selector"
-        app:menu="@menu/menu_nav"
         android:layout_alignParentBottom="true"
-        />
+        app:itemBackground="@drawable/gradient_background"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:menu="@menu/menu_nav" />
 
 </RelativeLayout>

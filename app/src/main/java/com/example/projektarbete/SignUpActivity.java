@@ -104,8 +104,8 @@ public class SignUpActivity extends AppCompatActivity {
             System.out.println(e);
         }
 
-
     }
+
 
     // LISTENER
 

@@ -10,4 +10,8 @@ public class Restaurants {
         this.info = info;
         this.imageId = imageId;
     }
+
+    public Restaurants() {
+
+    }
 }

@@ -4,20 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BuyActivity">
+    tools:context=".BuyActivity"
+    >
 
     <TextView
         android:id="@+id/txtInfo"
+        android:layout_margin="20dp"
+        android:textAlignment="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="@+id/txtName"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/txtName"
-        app:layout_constraintTop_toBottomOf="@+id/txtName" />
+        app:layout_constraintTop_toBottomOf="@+id/txtName"
+        />
 
     <TextView
         android:id="@+id/txtName"
@@ -26,6 +29,8 @@
         android:layout_marginTop="70dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,25 +42,42 @@
         android:layout_marginTop="10dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/txtInfo"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="@+id/txtInfo"
-        app:layout_constraintTop_toBottomOf="@+id/txtInfo"
-        app:layout_constraintVertical_bias="0.034" />
+        app:layout_constraintTop_toBottomOf="@+id/txtInfo" />
 
-    <Button
+
+    <TextView
         android:id="@+id/buyBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="125dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/button"
+        android:gravity="center"
+        android:text="Köp"
+        android:textAlignment="center"
+        android:textColor="#FF424242"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/txtPrice"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="@+id/txtPrice"
-        app:layout_constraintTop_toBottomOf="@+id/txtPrice"
-        app:layout_constraintVertical_bias="0.087"
-        tools:text="Köp" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPrice" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemBackground="@drawable/gradient_background"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_nav" />
+
+
+
+
 
 <RelativeLayout
 xmlns:android="http://schemas.android.com/apk/res/android"
