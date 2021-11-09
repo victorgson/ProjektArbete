@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.example.projektarbete.dbclassstructure.CartAdapter;
 import com.example.projektarbete.dbclassstructure.RestaurantsDB;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -37,7 +38,7 @@ public class CartActivity extends AppCompatActivity {
     FirebaseUser currentUser;
     DatabaseReference mDatabase;
     DatabaseReference ref;
-    CustomAdapter adapter;
+    CartAdapter adapter;
     int totalAmount = 0;
     int deliveryFee = 49;
 
@@ -64,7 +65,7 @@ public class CartActivity extends AppCompatActivity {
         listDish = new ArrayList<>();
         ListView listView = (ListView) findViewById(R.id.cart);
 
-        adapter = new CustomAdapter(this, R.layout.list_item, listDish);
+        adapter = new CartAdapter(this, R.layout.list_cart, listDish);
         listView.setAdapter(adapter);
         //adapter.add(new Dishes("Asd", "asd", "100",100));
 
