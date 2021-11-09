@@ -1,4 +1,4 @@
-package com.example.projektarbete.dbclassstructure;
+package com.example.projektarbete;
 
 import android.app.Activity;
 import android.content.Context;
