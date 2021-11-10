@@ -28,8 +28,7 @@ public class TimerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_timer);
-
-        animation();
+        
 
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
@@ -105,13 +104,7 @@ public class TimerActivity extends AppCompatActivity {
 
 
     }
-    public void animation(){
 
-        ImageView movingVamos = (ImageView) findViewById(R.id.imageViewVamosText);
-
-        movingVamos.animate().translationXBy(1000).setDuration(10000);
-
-    }
 
     public void updateTimer(int secondsLeft) {
         timerTextView = findViewById(R.id.timeLeftTV);
