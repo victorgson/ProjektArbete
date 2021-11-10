@@ -1,5 +1,7 @@
 package com.example.projektarbete;
 
+
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -8,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +34,6 @@ public class RestMenu extends AppCompatActivity {
         getSupportActionBar().hide();
 
         listDish = new ArrayList<>();
-        Dishes dish = new Dishes();
         RestLoga rLoga = new RestLoga();
         RestInfo rInfo = new RestInfo();
 
@@ -81,6 +83,7 @@ public class RestMenu extends AppCompatActivity {
             }
         });
 
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -115,6 +118,4 @@ public class RestMenu extends AppCompatActivity {
             }
         });
     }
-
-
 }

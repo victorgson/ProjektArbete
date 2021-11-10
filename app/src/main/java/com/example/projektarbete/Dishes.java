@@ -1,6 +1,22 @@
 package com.example.projektarbete;
 
+import android.util.Log;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class Dishes extends android.app.Activity {
+
+
+    private DatabaseReference mDatabase;
+    private DatabaseReference ref;
+    private FirebaseAuth mAuth;
+    String userID;
+
     private String name;
     private String info;
     private String price;
@@ -130,4 +146,54 @@ public class Dishes extends android.app.Activity {
 
         return prices;
     }
+
+
+    /*public void writeNewDish(String dishName, String dishInfo, String dishPrice, int price){
+        // Creates new object of user
+        Dishes dish = new Dishes(dishName, dishInfo, dishPrice, price);
+        try {
+            mDatabase.child("restaurants").child(userID).child("orders").push().setValue(r1);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
+
+    private void addReceiptEventListener(DatabaseReference mPostReference) {
+        // [START post_value_event_listener]
+        ValueEventListener postListener = new ValueEventListener() {
+            private static final String TAG = "TEST";
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get Post object and use the values to update the UI
+                //Post post = dataSnapshot.getValue(Post.class);
+
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Receipt r = new Receipt();
+                    System.out.println(ds.getValue());
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+            }
+        };
+        mPostReference.addValueEventListener(postListener);
+        // [END post_value_event_listener]
+    }
+
+
+    void init(){
+        mDatabase = FirebaseDatabase.getInstance("https://projektarbete-b5f1f-default-rtdb.europe-west1.firebasedatabase.app").getReference();
+        ref = mDatabase.child("orders");
+        mAuth = FirebaseAuth.getInstance();
+        userID = mAuth.getUid();
+        addReceiptEventListener(ref);
+
+    }*/
+
 }
