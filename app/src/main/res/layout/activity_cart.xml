@@ -24,12 +24,12 @@
             android:layout_width="350dp"
             android:layout_height="48dp"
             android:layout_marginLeft="26dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="80dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/button"
             android:gravity="center"
             android:onClick="checkoutClick"
-            android:text="Checkout"
+            android:text="Beställ"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="25sp"
@@ -80,7 +80,7 @@
         <ListView
             android:id="@+id/cart"
             android:layout_width="match_parent"
-            android:layout_height="324dp"
+            android:layout_height="261dp"
             android:layout_marginTop="15dp" />
 
         <LinearLayout
@@ -113,6 +113,17 @@
                 android:textColor="#353C40"
                 android:textSize="16dp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1"
+                android:text="  SEK" />
 
 
         </LinearLayout>
@@ -155,6 +166,17 @@
                 android:textColor="#353C40"
                 android:textSize="16dp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1"
+                android:text="       SEK" />
         </LinearLayout>
 
         <View
@@ -195,6 +217,17 @@
                 android:textColor="#353C40"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1"
+                android:text="SEK" />
 
 
         </LinearLayout>

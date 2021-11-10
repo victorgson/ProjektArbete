@@ -9,6 +9,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class Dishes extends android.app.Activity {
 
 
@@ -36,6 +38,24 @@ public class Dishes extends android.app.Activity {
 
     }
 
+
+
+    public static ArrayList<Dishes> KtMenu(){
+
+        ArrayList<Dishes> kt = new ArrayList<Dishes>();
+        Dishes one = new Dishes("Vegetariska vårrullar", "", "50:-", 50);
+        kt.add(one);
+
+
+        return kt;
+    }
+
+    public static void FillList(){
+        RestMenu.listDish.clear();
+        RestMenu.listDish.addAll(KtMenu());
+
+
+    }
 
     public static void Kt() {
 

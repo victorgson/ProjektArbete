@@ -2,10 +2,13 @@ package com.example.projektarbete;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,11 +36,14 @@ public class CartAdapter extends ArrayAdapter<Dishes> {
 
     }
 
+
+
     static class CartDataHolder {
 
         TextView cartName;
        // TextView dishInfo;
         TextView cartPrice;
+        ImageView cartButton;
 
 
     }
@@ -56,7 +62,7 @@ public class CartAdapter extends ArrayAdapter<Dishes> {
             holder.cartName = (TextView) convertView.findViewById(R.id.cName);
             //holder.dishInfo = (TextView) convertView.findViewById(R.id.dInfo);
             holder.cartPrice = (TextView) convertView.findViewById(R.id.cPrice);
-
+            holder.cartButton = (ImageView) convertView.findViewById(R.id.ImageViewDelete);
             convertView.setTag(holder);
         } else {
             holder = (CartDataHolder) convertView.getTag();
@@ -68,6 +74,10 @@ public class CartAdapter extends ArrayAdapter<Dishes> {
         holder.cartPrice.setText(dishes.getPrice());
 
         return convertView;
+
     }
+
+
+
 }
 

@@ -49,6 +49,7 @@ MainActivity extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(this.getResources().getColor(R.color.support_bar));
         }
+
         getSupportActionBar().hide();
         init();
         binding = ActivityMainBinding.inflate(getLayoutInflater());

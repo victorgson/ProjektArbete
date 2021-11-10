@@ -54,6 +54,13 @@ public class CartActivity extends AppCompatActivity {
 
     }
 
+    public void deleteClick (View view){
+
+        Log.i("info", "Button clicked!");
+
+
+
+    }
 
 
     @Override
@@ -171,6 +178,7 @@ public class CartActivity extends AppCompatActivity {
 
 
     }
+
 
 
 
