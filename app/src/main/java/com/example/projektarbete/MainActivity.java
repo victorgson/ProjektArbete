@@ -63,7 +63,7 @@ MainActivity extends AppCompatActivity {
         String[] info = {"49.00 SEK i avgift.  Leveranstid: 20-30 min", "49.00 SEK i avgift.  Leveranstid: 40-50 min", "49.00 SEK i avgift.  Leveranstid: 30-40 min",
                 "49.00 SEK i avgift.  Leveranstid: 20-30 min", "TEST"};
 
-        String[] restaurantsID = {"max", "bombay", "thai", "kfc", "TEST" };
+        String[] restaurantsID = {"max", "bombay", "thai", "KFC", "TEST" };
 
         ArrayList<Restaurants> restaurantsArrayList = new ArrayList<>();
 
