@@ -1,9 +1,14 @@
 package com.example.projektarbete;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 public class RestInfo {
+
+
 
     @SuppressLint("SetTextI18n")
     public void setRTKt(TextView text) {

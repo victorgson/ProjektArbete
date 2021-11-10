@@ -1,10 +1,13 @@
 package com.example.projektarbete;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -44,12 +47,14 @@ public class CartActivity extends AppCompatActivity {
 
     static List<Dishes> listDish;
 
-    public void orderClick (View view){
+    public void checkoutClick (View view){
 
         Log.i("info", "Button clicked!");
         startActivity(new Intent(this, TimerActivity.class));
 
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +71,13 @@ public class CartActivity extends AppCompatActivity {
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();}
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = this.getWindow();
+            ((Window) window).addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.support_bar));
+        }
 
 
 
@@ -130,6 +142,7 @@ public class CartActivity extends AppCompatActivity {
 
             }
 
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // Getting Post failed, log a message
@@ -160,4 +173,7 @@ public class CartActivity extends AppCompatActivity {
     }
 
 
+
+
 }
+
