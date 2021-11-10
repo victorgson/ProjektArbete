@@ -9,11 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.projektarbete.dbclassstructure.RestaurantsDB;
-import com.example.projektarbete.dbclassstructure.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -49,7 +46,7 @@ public class BuyActivity extends AppCompatActivity {
         info.setText(getIntent().getStringExtra("Info"));
         price.setText(getIntent().getStringExtra("Price"));
 
-        buyBtn.setText("Köp");
+//        buyBtn.setText("Köp");
         buyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,7 +65,6 @@ public class BuyActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
-
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

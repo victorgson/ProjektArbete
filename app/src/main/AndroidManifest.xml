@@ -24,13 +24,14 @@
             android:exported="false" />
         <activity
             android:name=".Basket"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".CartActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".BuyActivity"
-            android:exported="false" />
+            android:exported="true" />
+
         <activity
             android:name=".Dishes"
             android:exported="false" />

@@ -5,12 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class Basket extends AppCompatActivity {
+
+
+    public void beställClick(View view){
+
+        Log.i("info", "Button clicked!");
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +27,32 @@ public class Basket extends AppCompatActivity {
         setContentView(R.layout.activity_basket);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       //Navigationbar ------
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.basket);

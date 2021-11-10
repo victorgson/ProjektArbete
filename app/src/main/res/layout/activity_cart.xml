@@ -4,145 +4,204 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/gradient_backroundcart"
     tools:context=".CartActivity">
 
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#00474242">
+        android:layout_marginTop="450dp"
+        android:layout_marginBottom="60dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/checkoutBtn"
+            android:layout_width="350dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/button"
+            android:gravity="center"
+            android:onClick="checkoutClick"
+            android:text="Checkout"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/txtPrice"
+            app:layout_constraintHorizontal_bias="0.461"
+            app:layout_constraintStart_toStartOf="@+id/txtPrice"
+            app:layout_constraintTop_toBottomOf="@+id/txtPrice" />
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <TextView
+            android:id="@+id/textViewVarukorgen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="25dp"
+            android:text="Varukorgen"
+            android:textAlignment="center"
+            android:textColor="#353C40"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="380dp"
+            android:layout_height="2dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:background="#29323c" />
+
+
+        <ListView
+            android:id="@+id/cart"
+            android:layout_width="match_parent"
+            android:layout_height="324dp"
+            android:layout_marginTop="15dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
 
             <TextView
-                android:id="@+id/textViewVarukorgen"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="32dp"
-                android:text="Varukorgen"
-                android:textAlignment="center"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textSize="20dp"
+                android:id="@+id/textViewTotaltVaror"
+                android:layout_width="167dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:text="Belopp varor"
+                android:textColor="#353C40"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/amountDishesText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="0.3"
+                android:text="0 SEK"
+                android:textColor="#353C40"
+                android:textSize="16dp"
                 android:textStyle="bold" />
 
 
-            <ListView
-                android:id="@+id/cart"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+        </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+        <View
+            android:layout_width="380dp"
+            android:layout_height="2dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:background="#29323c" />
 
-                <TextView
-                    android:id="@+id/textViewTotaltVaror"
-                    android:layout_width="167dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_weight="1"
-                    android:text="Belopp varor"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/amountDishesText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_weight="0.3"
-                    android:text="Kr0"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textViewleverans"
-                    android:layout_width="167dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_weight="1"
-                    android:text="Leveranskostnad"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/deliveryFeeText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_weight="0.3"
-                    android:text="Kr0"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textViewTotaltBelopp"
-                    android:layout_width="167dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_weight="1"
-                    android:text="Totalt Belopp"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/totalAmountText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_weight="0.3"
-                    android:text="Kr0"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
 
             <TextView
-                android:id="@+id/BeställBtn"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="50dp"
-                android:background="@drawable/button"
-                android:gravity="center"
-                android:onClick="orderClick"
-                android:text="Beställ"
-                android:textAlignment="center"
-                android:textColor="#FF424242"
-                android:textSize="25sp"
+                android:id="@+id/textViewleverans"
+                android:layout_width="167dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="Leveranskostnad"
+                android:textColor="#353C40"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/deliveryFeeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="0.3"
+                android:text="0 SEK"
+                android:textColor="#353C40"
+                android:textSize="16dp"
                 android:textStyle="bold" />
         </LinearLayout>
-    </ScrollView>
+
+        <View
+            android:layout_width="380dp"
+            android:layout_height="2dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:background="#29323c" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="800dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewTotaltBelopp"
+                android:layout_width="167dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:text="Totalt Belopp"
+                android:textColor="#353C40"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/totalAmountText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="0.3"
+                android:text="0 SEK"
+                android:textColor="#353C40"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
@@ -151,5 +210,8 @@
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_nav" />
+        app:menu="@menu/menu_nav">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
