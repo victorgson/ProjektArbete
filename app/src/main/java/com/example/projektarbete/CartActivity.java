@@ -8,6 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,6 +26,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -35,16 +39,18 @@ public class CartActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser currentUser;
     DatabaseReference mDatabase;
-    DatabaseReference ref;
+    static DatabaseReference ref;
     CartAdapter adapter;
-    int totalAmount = 0;
-    int deliveryFee = 49;
+     public int totalAmount;
+     int deliveryFee = 49;
 
-    TextView totalAmountText;
-    TextView deliveryFeeText;
-    TextView amountDishes;
+    static TextView totalAmountText;
+    static TextView deliveryFeeText;
+    static TextView amountDishes;
     TextView orderButton;
+    ImageButton btn;
 
+    //static
     static List<Dishes> listDish;
 
     public void checkoutClick (View view){
@@ -57,8 +63,7 @@ public class CartActivity extends AppCompatActivity {
     public void deleteClick (View view){
 
         Log.i("info", "Button clicked!");
-
-
+        listDish.remove(view.getTag());
 
     }
 
@@ -67,13 +72,17 @@ public class CartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+        btn = (ImageButton)findViewById(R.id.ImageViewDelete);
         init();
 
         listDish = new ArrayList<>();
         ListView listView = (ListView) findViewById(R.id.cart);
 
+
         adapter = new CartAdapter(this, R.layout.list_cart, listDish);
         listView.setAdapter(adapter);
+
+
         //adapter.add(new Dishes("Asd", "asd", "100",100));
 
         if (getSupportActionBar() != null) {
@@ -133,18 +142,14 @@ public class CartActivity extends AppCompatActivity {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get Post object and use the values to update the UI
-                //Post post = dataSnapshot.getValue(Post.class);
+                System.out.println("detta kallas");
 
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    Receipt r = new Receipt();
-                    totalAmount += (long) ds.child("dishPrice").getValue();
-                    //System.out.println(ds.getValue());
+                    totalAmount = (int) (totalAmount +  (long) ds.child("dishPrice").getValue());
                     adapter.add(new Dishes(ds.child("dishName").getValue().toString(), "asd", ds.child("dishPrice").getValue().toString(),100));
-                    //System.out.println(ds.child("dishName").getValue());
-
                     totalAmountText.setText(String.valueOf(totalAmount + deliveryFee));
                     amountDishes.setText(String.valueOf(totalAmount));
+
                 }
 
             }
@@ -156,7 +161,7 @@ public class CartActivity extends AppCompatActivity {
                 Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
             }
         };
-        mPostReference.addValueEventListener(postListener);
+        mPostReference.addListenerForSingleValueEvent(postListener);
         // [END post_value_event_listener]
     }
 
@@ -179,6 +184,38 @@ public class CartActivity extends AppCompatActivity {
 
     }
 
+
+    public void removeOrder(int position){
+
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int i = 0;
+                for(DataSnapshot ds : snapshot.getChildren()) {
+                    if(position == i){
+                        System.out.println("hej?");
+                        String key = ds.getKey();
+                        ref.child(key).removeValue();
+                        System.out.println(totalAmount);
+
+                        //totalAmountText.setText(String.valueOf(totalAmount));
+                    }
+                    System.out.println(i);
+                    i++;
+                    }
+                }
+
+
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+        });
+
+    }
 
 
 
