@@ -11,7 +11,42 @@ public class Restaurants {
         this.imageId = imageId;
     }
 
-    public Restaurants() {
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public int getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Restaurants{" +
+                "name='" + name + '\'' +
+                ", info='" + info + '\'' +
+                ", imageId=" + imageId +
+                '}';
+    }
+
+    public Restaurants() {
+        this.imageId = R.drawable.bombay;
     }
 }

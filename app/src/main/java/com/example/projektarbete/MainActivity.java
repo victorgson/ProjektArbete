@@ -12,13 +12,9 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.Button;
 
 
-import com.google.firebase.database.IgnoreExtraProperties;
 import com.example.projektarbete.databinding.ActivityMainBinding;
-import com.example.projektarbete.dbclassstructure.RestaurantsDB;
-import com.example.projektarbete.dbclassstructure.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,7 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Objects;
+import java.util.Locale;
 
 public class
 MainActivity extends AppCompatActivity {
@@ -40,6 +36,8 @@ MainActivity extends AppCompatActivity {
     FirebaseUser currentUser;
     DatabaseReference mDatabase;
     DatabaseReference ref;
+    ArrayList<Restaurants> restaurantsArrayList;
+    Restaurants restaurants;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,40 +55,50 @@ MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        int[] imageId = {R.drawable.mcdonalds, R.drawable.indish_food_pic, R.drawable.thaifood_bild_pic, R.drawable.fried_chicken_pic, R.drawable.fried_chicken_pic};
+        int[] imageId = {R.drawable.max, R.drawable.bombay, R.drawable.kanyasthai, R.drawable.kfc};
 
-        String[] name = {"Max", "Bombay", "Kanyas Thai", "KFC", "TEST",  };
+        String[] name = {"Max", "Bombay", "Kanyas Thai", "KFC",};
 
         String[] info = {"49.00 SEK i avgift.  Leveranstid: 20-30 min", "49.00 SEK i avgift.  Leveranstid: 40-50 min", "49.00 SEK i avgift.  Leveranstid: 30-40 min",
-                "49.00 SEK i avgift.  Leveranstid: 20-30 min", "TEST"};
+                "49.00 SEK i avgift.  Leveranstid: 20-30 min"};
 
-        String[] restaurantsID = {"max", "bombay", "thai", "kfc", "TEST" };
+        String[] restaurantsID = {"max", "bombay", "thai", "kfc"};
 
-        ArrayList<Restaurants> restaurantsArrayList = new ArrayList<>();
+        restaurantsArrayList = new ArrayList<>();
 
-        for (int i = 0; i < imageId.length; i++) {
+     /*   for (int i = 0; i < imageId.length; i++) {
 
-            Restaurants restaurants = new Restaurants(name[i], info[i], imageId[i]);
+            restaurants = new Restaurants(name[i], info[i], imageId[i]);
             restaurantsArrayList.add(restaurants);
-        }
 
-        ListAdapter listAdapter = new ListAdapter(MainActivity.this, restaurantsArrayList);
+        }*/
 
-        binding.listView.setAdapter(listAdapter);
+        /*ListAdapter listAdapter = new ListAdapter(MainActivity.this, restaurantsArrayList);
+
+        binding.listView.setAdapter(listAdapter);*/
         binding.listView.setClickable(true);
         binding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent i = new Intent(); //ändra till Vincents class
-                i.putExtra("name",name[position]);
+                /*i.putExtra("name",name[position]);
                 i.putExtra("info",info[position]);
                 i.putExtra("imageid",imageId[position]);
-                i.putExtra("Rest1", restaurantsID[position]);
+                i.putExtra("Rest1", restaurantsID[position]);*/
 
                 i.setClass(MainActivity.this, RestMenu.class);
+
+                //Log.i("info","Du tryckte på "+name[position]);
+
+                Restaurants r2 = (Restaurants) parent.getItemAtPosition(position);
+                i.putExtra("name", r2.getName());
+                i.putExtra("info", r2.getInfo());
+                i.putExtra("imageid", r2.getImageId());
+                i.putExtra("Rest1", r2.getName());
                 startActivity(i);
-                Log.i("info","Du tryckte på "+name[position]);
+                System.out.println(parent.getItemAtPosition(position));
+
 
             }
         });
@@ -128,9 +136,6 @@ MainActivity extends AppCompatActivity {
 
                 }
 
-
-
-
                 return false;
             }
         });
@@ -148,16 +153,25 @@ MainActivity extends AppCompatActivity {
                 //Post post = dataSnapshot.getValue(Post.class);
 
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    RestaurantsDB r = new RestaurantsDB();
-                    String name = ds.child("resturantName").getValue(String.class);
-                    String desc = ds.child("resturantDesc").getValue(String.class);
-                    r.setRestaurantName(name);
-                    r.setRestaurantDesc(desc);
+                    Restaurants r = new Restaurants();
+                    String name = ds.child("name").getValue(String.class);
+                    String desc = ds.child("info").getValue(String.class);
+                    String imageName = name.toLowerCase(Locale.ROOT);
 
-                    r.getRestaurantName();
+                    System.out.println(imageName);
 
-                    // lägga till mcdonalds i listan
-                    System.out.println(r.getRestaurantDesc());
+                    //String imageId = ds.child("imageId").getValue(String.class);
+                    int id = getResources().getIdentifier(imageName,"drawable",getPackageName());
+                    r.setName(name);
+                    r.setInfo(desc);
+                    r.setImageId(id);
+                    restaurantsArrayList.add(r);
+                    updateUI();
+
+
+                    System.out.println(r.getName());
+
+
 
 
 
@@ -179,10 +193,16 @@ MainActivity extends AppCompatActivity {
         //firebase
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance("https://projektarbete-b5f1f-default-rtdb.europe-west1.firebasedatabase.app").getReference();
-        ref = mDatabase.child("resturants");
+        ref = mDatabase.child("restaurants");
         currentUser = mAuth.getCurrentUser();
         //layout
 
+    }
+
+    private void updateUI(){
+        ListAdapter listAdapter = new ListAdapter(MainActivity.this, restaurantsArrayList);
+
+        binding.listView.setAdapter(listAdapter);
     }
 
     @Override

@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.projektarbete.dbclassstructure.RestaurantsDB;
 import com.example.projektarbete.dbclassstructure.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -111,10 +110,10 @@ public class RestaurantSignUpActivity extends AppCompatActivity {
 
 
     }
-    public void writeNewRestaurant(String restaurantName, String resturantDesc){
-        RestaurantsDB restaurant = new RestaurantsDB(restaurantName, resturantDesc, 0, "empty");
+    public void writeNewRestaurant(String restaurantName, String info){
+        Restaurants restaurant = new Restaurants(restaurantName, info,R.drawable.max);
         try {
-            mDatabase.child("restaurant").child(restaurantName).setValue(restaurant);
+            mDatabase.child("restaurants").child(restaurantName).setValue(restaurant);
         } catch (Exception e) {
             System.out.println(e);
         }
