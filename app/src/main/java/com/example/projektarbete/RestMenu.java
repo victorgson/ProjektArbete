@@ -123,8 +123,12 @@ public class RestMenu extends AppCompatActivity {
                         return true;
 
                     case R.id.order:
-                        startActivity(new Intent(getApplicationContext(), TimerActivity.class));
-                        overridePendingTransition(0, 0);
+                        Intent intent=new Intent();
+                        intent.putExtra("Timer","NORUN");
+                        intent.setClass(RestMenu.this,TimerActivity.class);
+                        startActivity(intent);
+                        //startActivity(new Intent(getApplicationContext(), TimerActivity.class));
+                        overridePendingTransition(0,0);
                         return true;
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));

@@ -50,7 +50,11 @@ public class CartActivity extends AppCompatActivity {
     public void checkoutClick (View view){
 
         Log.i("info", "Button clicked!");
-        startActivity(new Intent(this, TimerActivity.class));
+        Intent intent = new Intent();
+        intent.putExtra("Timer","KÖR");
+        intent.setClass(CartActivity.this,TimerActivity.class);
+        startActivity(intent);
+        //startActivity(new Intent(this, TimerActivity.class));
 
     }
 
@@ -106,7 +110,11 @@ public class CartActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.order:
-                        startActivity(new Intent(getApplicationContext(), TimerActivity.class));
+                        Intent intent=new Intent();
+                        intent.putExtra("Timer","NORUN");
+                        intent.setClass(CartActivity.this,TimerActivity.class);
+                        startActivity(intent);
+                        //startActivity(new Intent(getApplicationContext(), TimerActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.home:
