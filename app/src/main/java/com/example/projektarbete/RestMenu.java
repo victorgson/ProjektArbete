@@ -53,20 +53,20 @@ public class RestMenu extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.menulista);
 
 
-        if (getIntent().getStringExtra("Rest1").equals("thai")) {
+        if (getIntent().getStringExtra("Rest1").equals("Kanyas Thai")) {
             Dishes.Kt();
             rLoga.setLogaKt(loga);
             rInfo.setRTKt(rtInfo);
-        } else if (getIntent().getStringExtra("Rest1").equals("max")) {
+        } else if (getIntent().getStringExtra("Rest1").equals("Max")) {
             Dishes.Max();
             rLoga.setLogaMacD(loga);
             rInfo.setRTMax(rtInfo);
 
-        } else if (getIntent().getStringExtra("Rest1").equals("bombay")) {
+        } else if (getIntent().getStringExtra("Rest1").equals("Bombay")) {
             Dishes.Bombay();
             rLoga.setLogaBombay(loga);
             rInfo.setRTBombay(rtInfo);
-        } else if (getIntent().getStringExtra("Rest1").equals("kfc")) {
+        } else if (getIntent().getStringExtra("Rest1").equals("KFC")) {
             Dishes.Kfc();
             rLoga.setLogaKfc(loga);
             rInfo.setRTKfc(rtInfo);

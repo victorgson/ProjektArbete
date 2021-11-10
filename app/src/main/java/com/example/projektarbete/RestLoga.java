@@ -6,22 +6,22 @@ import android.widget.ImageView;
 public class RestLoga {
 
     public void setLogaMacD(ImageView view) {
-        view.setImageResource(R.drawable.mcdonalds);
+        view.setImageResource(R.drawable.max);
 
 
     }
     public void setLogaKt(ImageView view) {
-        view.setImageResource(R.drawable.thaifood_bild_pic);
+        view.setImageResource(R.drawable.kanyasthai);
 
 
     }
     public void setLogaBombay(ImageView view) {
-        view.setImageResource(R.drawable.indish_food_pic);
+        view.setImageResource(R.drawable.bombay);
 
 
     }
     public void setLogaKfc(ImageView view) {
-        view.setImageResource(R.drawable.fried_chicken_pic);
+        view.setImageResource(R.drawable.kfc);
 
 
     }
