@@ -28,6 +28,7 @@ public class BuyActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     String userID;
     String orderAmount = "0";
+    String key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,13 +105,15 @@ public class BuyActivity extends AppCompatActivity {
     public void writeNewOrder(String dishName, int dishPrice, String uid){
         // Creates new object of user
         Receipt r1 = new Receipt(dishName, dishPrice, uid);
+        key = mDatabase.child("users").child(userID).child("orders").push().getKey();
         try {
-            mDatabase.child("users").child(userID).child("orders").push().setValue(r1);
+            mDatabase.child("users").child(userID).child("orders").child(key).setValue(r1);
         } catch (Exception e) {
             System.out.println(e);
         }
 
     }
+
 
     private void addReceiptEventListener(DatabaseReference mPostReference) {
         // [START post_value_event_listener]
@@ -146,6 +149,7 @@ public class BuyActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         userID = mAuth.getUid();
         addReceiptEventListener(ref);
+
 
     }
 }

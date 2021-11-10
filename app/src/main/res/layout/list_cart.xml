@@ -20,8 +20,8 @@
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginRight="16dp"
                 android:layout_weight="1"
                 android:text="TextView"
                 android:textColor="@color/black"
@@ -35,8 +35,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:text="TextView"
-                android:textSize="15dp"
                 android:textColor="@color/black"
+                android:textSize="15dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -46,9 +46,9 @@
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:text="Kr"
-                android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/ImageViewDelete"

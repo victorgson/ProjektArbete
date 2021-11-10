@@ -16,6 +16,10 @@ import androidx.annotation.Nullable;
 
 import com.example.projektarbete.Dishes;
 import com.example.projektarbete.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -24,6 +28,13 @@ public class CartAdapter extends ArrayAdapter<Dishes> {
     Context context;
     int layoutResourceId;
     List<Dishes> dish;
+    FirebaseAuth mAuth;
+    FirebaseUser currentUser;
+    DatabaseReference mDatabase;
+    DatabaseReference ref;
+    CartActivity cr = new CartActivity();
+
+
 
 
     public CartAdapter(@NonNull Context context, int resource, @NonNull List<Dishes> objects) {
@@ -69,9 +80,26 @@ public class CartAdapter extends ArrayAdapter<Dishes> {
 
         }
         Dishes dishes = dish.get(position);
+
         holder.cartName.setText(dishes.getName());
        // holder.dishInfo.setText(dishes.getInfo());
         holder.cartPrice.setText(dishes.getPrice());
+
+        holder.cartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dish.remove(dishes);
+                //dish.remove(position);
+                System.out.println(position + "hallå?");
+                CartAdapter.this.notifyDataSetChanged();
+                cr.removeOrder(position);
+
+
+
+            }
+        });
+
+
 
         return convertView;
 
