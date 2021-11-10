@@ -65,7 +65,7 @@ public class RestMenu extends AppCompatActivity {
 
 
 
-        if (getIntent().getStringExtra("Rest1").equals("Kanyas Thai")) {
+        if (getIntent().getStringExtra("Rest1").equals("KanyasThai")) {
             Dishes.Kt();
             rLoga.setLogaKt(loga);
             rInfo.setRTKt(rtInfo);
