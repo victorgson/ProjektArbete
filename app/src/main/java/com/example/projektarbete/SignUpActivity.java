@@ -5,13 +5,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.projektarbete.dbclassstructure.Foods;
@@ -42,7 +46,17 @@ public class SignUpActivity extends AppCompatActivity {
         init();
 
 
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = this.getWindow();
+            ((Window) window).addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.support_bar));
+        }
+
+
     }
+
+
 
 
     private void init(){
@@ -51,7 +65,7 @@ public class SignUpActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance("https://projektarbete-b5f1f-default-rtdb.europe-west1.firebasedatabase.app").getReference();
 
         // layout
-        Button signUpBtn = (Button)findViewById(R.id.signUpButton);
+        TextView signUpBtn = (TextView) findViewById(R.id.signUpButton);
         email = (TextInputLayout) findViewById(R.id.editTextEmail);
         password = (TextInputLayout) findViewById(R.id.editTextPassword);
         password2 = (TextInputLayout) findViewById(R.id.editTextPassword2);
