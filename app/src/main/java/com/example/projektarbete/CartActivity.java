@@ -99,7 +99,7 @@ public class CartActivity extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.support_bar));
         }
 
-
+//asdasdasdas
 
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
