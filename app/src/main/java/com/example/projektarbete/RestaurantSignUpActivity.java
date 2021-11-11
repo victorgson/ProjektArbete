@@ -4,13 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.projektarbete.dbclassstructure.RestaurantsDB;
 import com.example.projektarbete.dbclassstructure.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,7 +34,7 @@ public class RestaurantSignUpActivity extends AppCompatActivity {
     TextInputLayout email, password, password2, restaurantName, restaurantDesc;
 
 
-    Button signUpBtn;
+    TextView signUpBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,13 @@ public class RestaurantSignUpActivity extends AppCompatActivity {
 
 
         signUpBtn.setOnClickListener(listener);
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = this.getWindow();
+            ((Window) window).addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.support_bar));
+        }
 
     }
 
@@ -51,7 +61,7 @@ public class RestaurantSignUpActivity extends AppCompatActivity {
 
 
         // Layout
-        signUpBtn = (Button)findViewById(R.id.resturantSignUpButton);
+        signUpBtn = (TextView)findViewById(R.id.resturantSignUpButton);
         email = (TextInputLayout) findViewById(R.id.resturantEmailTextInput);
         password = (TextInputLayout) findViewById(R.id.resturantPasswordTextInput);
         password2 = (TextInputLayout) findViewById(R.id.resturantPassword2TextInput);
@@ -100,10 +110,10 @@ public class RestaurantSignUpActivity extends AppCompatActivity {
 
 
     }
-    public void writeNewRestaurant(String restaurantName, String resturantDesc){
-        RestaurantsDB restaurant = new RestaurantsDB(restaurantName, resturantDesc, 0, "empty");
+    public void writeNewRestaurant(String restaurantName, String info){
+        Restaurants restaurant = new Restaurants(restaurantName, info,R.drawable.max);
         try {
-            mDatabase.child("restaurant").child(restaurantName).setValue(restaurant);
+            mDatabase.child("restaurants").child(restaurantName).setValue(restaurant);
         } catch (Exception e) {
             System.out.println(e);
         }

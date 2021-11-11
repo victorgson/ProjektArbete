@@ -64,21 +64,22 @@ public class RestMenu extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.menulista);
 
 
-        if (getIntent().getStringExtra("Rest1").equals("thai")) {
-            Kt();
+
+        if (getIntent().getStringExtra("Rest1").equals("KanyasThai")) {
+            Dishes.Kt();
             rLoga.setLogaKt(loga);
             rInfo.setRTKt(rtInfo);
-        } else if (getIntent().getStringExtra("Rest1").equals("max")) {
-            Max();
+        } else if (getIntent().getStringExtra("Rest1").equals("Max")) {
+            Dishes.Max();
             rLoga.setLogaMacD(loga);
             rInfo.setRTMax(rtInfo);
 
-        } else if (getIntent().getStringExtra("Rest1").equals("bombay")) {
-            Bombay();
+        } else if (getIntent().getStringExtra("Rest1").equals("Bombay")) {
+            Dishes.Bombay();
             rLoga.setLogaBombay(loga);
             rInfo.setRTBombay(rtInfo);
         } else if (getIntent().getStringExtra("Rest1").equals("KFC")) {
-            Kfc();
+            Dishes.Kfc();
             rLoga.setLogaKfc(loga);
             rInfo.setRTKfc(rtInfo);
         }
@@ -123,8 +124,12 @@ public class RestMenu extends AppCompatActivity {
                         return true;
 
                     case R.id.order:
-                        startActivity(new Intent(getApplicationContext(), TimerActivity.class));
-                        overridePendingTransition(0, 0);
+                        Intent intent=new Intent();
+                        intent.putExtra("Timer","NORUN");
+                        intent.setClass(RestMenu.this,TimerActivity.class);
+                        startActivity(intent);
+                        //startActivity(new Intent(getApplicationContext(), TimerActivity.class));
+                        overridePendingTransition(0,0);
                         return true;
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));

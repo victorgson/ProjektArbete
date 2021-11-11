@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     FirebaseAuth mAuth;
     TextView signUpText, resturantSignUpText;
-    Button signInBtn;
+    TextView signInBtn;
     TextInputLayout email, password;
 
 
@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         // layout
         email = (TextInputLayout) findViewById(R.id.emailSignIn);
         password = (TextInputLayout) findViewById(R.id.passwordSignIn);
-        signInBtn = (Button)findViewById(R.id.signInButton);
+        signInBtn = (TextView) findViewById(R.id.signInButton);
         signInBtn.setOnClickListener(signInEmailListener);
         signUpText = (TextView)findViewById(R.id.textView);
         resturantSignUpText = (TextView)findViewById(R.id.resturantText);

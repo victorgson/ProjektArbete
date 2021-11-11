@@ -40,7 +40,7 @@
             android:exported="false" />
         <activity
             android:name=".RestaurantSignUpActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SignUpActivity"
             android:exported="true" />

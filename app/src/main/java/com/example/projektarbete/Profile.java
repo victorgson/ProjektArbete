@@ -70,7 +70,11 @@ public class Profile extends AppCompatActivity {
                         return true;
 
                     case R.id.order:
-                        startActivity(new Intent(getApplicationContext(), TimerActivity.class));
+                        Intent intent=new Intent();
+                        intent.putExtra("Timer","NORUN");
+                        intent.setClass(Profile.this,TimerActivity.class);
+                        startActivity(intent);
+                        //startActivity(new Intent(getApplicationContext(), TimerActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.home:

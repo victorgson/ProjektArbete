@@ -54,36 +54,43 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:text="No account? Sign up here!"
-        android:textAlignment="center"
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="577dp"
-        android:layout_gravity="center"
-        />
-
-    <Button
-        android:id="@+id/signInButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign in"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        />
+        android:clickable="true"
+        android:gravity="center"
+        android:text="No account? Sign up here!"
+        android:textAlignment="center"
+        tools:ignore="TouchTargetSizeCheck"
+        tools:layout_editor_absoluteX="124dp"
+        tools:layout_editor_absoluteY="577dp" />
+
+    <TextView
+        android:id="@+id/signInButton"
+        android:layout_width="200dp"
+        android:layout_height="35sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button"
+        android:gravity="center"
+        android:text="Sign in"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/resturantText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:clickable="true"
         android:text="Want to register your resturant? Click here!"
-        android:layout_gravity="center"
-        />
+        tools:ignore="TouchTargetSizeCheck" />
 
 
 
