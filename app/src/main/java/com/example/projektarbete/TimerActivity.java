@@ -35,19 +35,19 @@ public class TimerActivity extends AppCompatActivity {
         TextView tf = (TextView) findViewById(R.id.thanksForOrderTV);
         TextView td = (TextView) findViewById(R.id.timeLeftTV);
         TextView ts = (TextView) findViewById(R.id.foodArriveTV);
-
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = this.getWindow();
+            ((Window) window).addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.support_bar));
+        }
 
         String timerSett = getIntent().getStringExtra("Timer");
         try {
             if (timerSett.equals("KÖR")) {
                 tf.setText("Thanks for your order!");
                 timer = 10000;
-                if (Build.VERSION.SDK_INT >= 21) {
-                    Window window = this.getWindow();
-                    ((Window) window).addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                    window.setStatusBarColor(this.getResources().getColor(R.color.support_bar));
-                }
+
                 new CountDownTimer(timer + 100, 1000) {
 
                     public void onTick(long millisecondsUntillDone) {
