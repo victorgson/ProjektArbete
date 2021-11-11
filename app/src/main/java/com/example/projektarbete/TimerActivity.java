@@ -65,7 +65,7 @@ public class TimerActivity extends AppCompatActivity {
             }
             if (timerSett.equals("NORUN")) {
                // if(shared pref solutions){}else {
-                    tf.setText("Lets Try again!");
+                    tf.setText("You haven't ordered anything!");
                     td.setVisibility(View.INVISIBLE);
                     ts.setVisibility(View.INVISIBLE);
 
