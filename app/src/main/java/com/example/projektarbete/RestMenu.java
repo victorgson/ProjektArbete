@@ -66,20 +66,20 @@ public class RestMenu extends AppCompatActivity {
 
 
         if (getIntent().getStringExtra("Rest1").equals("KanyasThai")) {
-            Dishes.Kt();
+            Kt();
             rLoga.setLogaKt(loga);
             rInfo.setRTKt(rtInfo);
         } else if (getIntent().getStringExtra("Rest1").equals("Max")) {
-            Dishes.Max();
+            Max();
             rLoga.setLogaMacD(loga);
             rInfo.setRTMax(rtInfo);
 
         } else if (getIntent().getStringExtra("Rest1").equals("Bombay")) {
-            Dishes.Bombay();
+            Bombay();
             rLoga.setLogaBombay(loga);
             rInfo.setRTBombay(rtInfo);
         } else if (getIntent().getStringExtra("Rest1").equals("KFC")) {
-            Dishes.Kfc();
+            Kfc();
             rLoga.setLogaKfc(loga);
             rInfo.setRTKfc(rtInfo);
         }
