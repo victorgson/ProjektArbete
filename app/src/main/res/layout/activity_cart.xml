@@ -21,7 +21,7 @@
 
         <TextView
             android:id="@+id/checkoutBtn"
-            android:layout_width="350dp"
+            android:layout_width="370dp"
             android:layout_height="48dp"
             android:layout_marginLeft="26dp"
             android:layout_marginTop="80dp"
